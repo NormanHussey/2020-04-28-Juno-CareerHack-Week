@@ -8,12 +8,29 @@
 </head>
 <body>
     <header>
-        <h1>Mark-It</h1>
+        <nav>
+            <ul>
+                <li>
+                    <button id="loadBtn">Load
+                        <input type="file" name="file" id="fileLoad" class="loadFile" accept="text/plain">
+                    </button>   
+                </li>
+                <li>
+                    <button id="downloadBtn">Download</button>
+                </li>
+                <li>
+                    <button id="update">Update</button>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
         <div class="wrapper">
             <div class="input">
-                <textarea name="inputText" id="inputText"></textarea>
+                <form action="/api/text" id="inputForm" method="POST">
+                    <textarea name="inputText" id="inputText"></textarea>
+                    <button>Submit</button>
+                </form>
             </div>
             <div class="output">
 
