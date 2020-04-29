@@ -13,7 +13,7 @@ function App() {
       <main>
         <div className="wrapper">
           <Input inputChange={inputChange} />
-          <div className="output"></div>
+          <div className="output">{input}</div>
         </div>
       </main>
     </div>
