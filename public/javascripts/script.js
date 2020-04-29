@@ -1,6 +1,6 @@
 const app = {};
 
-app.converter = new showdown.Converter();
+// app.converter = new showdown.Converter();
 app.input = document.querySelector('#inputText');
 app.output = document.querySelector('.output');
 app.downloadBtn = document.querySelector('#downloadBtn');
@@ -46,14 +46,20 @@ update.addEventListener('click', (e) => {
     fetch('/api/text')
       .then(response => response.json())
       .then(json => {
-        console.log(json.html);
+        // console.log(json.html);
         app.output.innerHTML = json.html;
       });
 });
 
 app.updateOutput = () => {
-    // const markedInput = app.converter.makeHtml(app.input.value);
-    // app.output.innerHTML = markedInput;
+    fetch('/api/text')
+    .then(response => response.json())
+    .then(json => {
+    //   console.log(json.html);
+        if (json.html) {
+            app.output.innerHTML = json.html;
+        }
+    });
     requestAnimationFrame(app.updateOutput);
 }
 
