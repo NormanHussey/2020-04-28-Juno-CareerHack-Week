@@ -6,7 +6,15 @@ import Input from './Components/Input';
 function App() {
   const [input, setInput] = useState('');
   const inputChange = (e) => {
-    setInput(e.target.value);
+    fetch('/text', {
+      method: 'post',
+      body: e.target.value
+    });
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data);
+    //   setInput(data);
+    // })
   }
   return (
     <div className="App">
