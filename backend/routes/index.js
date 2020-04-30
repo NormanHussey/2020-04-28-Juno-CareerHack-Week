@@ -18,7 +18,6 @@ router.get('/api/text', function (req, res) {
 });
 
 router.post('/api/text', function(req, res) {
-  console.log(req.body.html);
   data.html = converter.makeHtml(req.body.html);
   res.redirect('/');
 });

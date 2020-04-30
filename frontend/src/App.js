@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 import Input from './Components/Input';
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('using effect');
     axios({
       method: 'get',
       url: '/api/text'
@@ -31,7 +31,7 @@ function App() {
       <main>
         <div className="wrapper">
           <Input inputChange={inputChange} />
-          <div className="output">{output}</div>
+          <div className="output">{ReactHtmlParser(output)}</div>
         </div>
       </main>
     </div>
